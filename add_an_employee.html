@@ -36,6 +36,7 @@ function checkForm()
     var address = document.getElementById("add").value;
     var contact_number = document.getElementById("cno").value;
     var account_number = document.getElementById("ano").value;
+    var middle_name = document.getElementById("mname").value;
 var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
@@ -51,33 +52,138 @@ if(mm<10) {
 } 
 today = yyyy+'-'+mm+'-'+dd;
 
-if(project_date.length== 0 || joining_date.length== 0 || first_name.length==0 || last_name.length==0|| address.length==0 || contact_number.length==0 || account_number.length==0){
+if(first_name.length == 0){
+        alert('Please Enter First Name');
+        document.getElementById('fname').style.borderColor = "red";
+         document.getElementById("fname").focus();
+        return false;
+    }else{
+        document.getElementById('fname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("fname").value)) {
+        alert("First Name Contains Numbers!");
+        document.getElementById('fname').style.borderColor = "red";
+         document.getElementById("fname").focus();
+        return false;
+    }else{
+        document.getElementById('fname').style.borderColor = "green";
+    }
 
-    alert("Fill all fields");
-    return false;
-}
 
-    else if (project_date < today) 
+
+
+if(middle_name.length == 0){
+        alert('Please Enter Middle Name');
+        alert("Enter N/A if not applicable");
+        document.getElementById('mname').style.borderColor = "red";
+         document.getElementById("mname").focus();
+        return false;
+    }else{
+        document.getElementById('mname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("mname").value)) {
+        alert("Middle Name Contains Numbers!");
+        document.getElementById('mname').style.borderColor = "red";
+         document.getElementById("mname").focus();
+        return false;
+    }else{
+        document.getElementById('mname').style.borderColor = "green";
+    }
+
+
+
+
+if(last_name.length == 0){
+        alert('Please Enter Last Name');
+        document.getElementById('lname').style.borderColor = "red";
+         document.getElementById("lname").focus();
+        return false;
+    }else{
+        document.getElementById('lname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("lname").value)) {
+        alert("Last Name Contains Numbers!");
+        document.getElementById('lname').style.borderColor = "red";
+         document.getElementById("lname").focus();
+        return false;
+    }else{
+        document.getElementById('lname').style.borderColor = "green";
+    }
+
+
+
+    if(address.length == 0){
+        alert('Please Enter Address');
+        document.getElementById('add').style.borderColor = "red";
+         document.getElementById("add").focus();
+        return false;
+    }else{
+        document.getElementById('add').style.borderColor = "green";
+    }
+if(contact_number.length == 0){
+        alert('Please Enter Contact Number');
+        document.getElementById('cno').style.borderColor = "red";
+         document.getElementById("cno").focus();
+        return false;
+    }else{
+        document.getElementById('cno').style.borderColor = "green";
+    }
+if(account_number.length == 0){
+        alert('Please Enter Account Number');
+        document.getElementById('ano').style.borderColor = "red";
+         document.getElementById("ano").focus();
+        return false;
+    }else{
+        document.getElementById('ano').style.borderColor = "green";
+    }
+
+var ifsc=document.getElementById("ifsc").value;
+    if(ifsc.length == 0){
+        alert('Please Enter IFSC Code');
+        document.getElementById('ifsc').style.borderColor = "red";
+         document.getElementById("ifsc").focus();
+        return false;
+    }else{
+        document.getElementById('ifsc').style.borderColor = "green";
+    }
+
+    if(project_date.length == 0){
+        alert('Please Enter Project Date');
+        document.getElementById('pdate').style.borderColor = "red";
+         document.getElementById("pdate").focus();
+        return false;
+    }else{
+        document.getElementById('pdate').style.borderColor = "green";
+    } 
+
+    if (project_date < today) 
     {
         alert("Enter correct project date ");
+         document.getElementById('pdate').style.borderColor = "red";
+          document.getElementById("pdate").focus();
         return false;
-
+    }else{
+        document.getElementById('pdate').style.borderColor = "green";
     }
-    else if(joining_date < today){
+
+    if(joining_date.length == 0){
+        alert('Please Enter Joining Date');
+        document.getElementById('hid').style.borderColor = "red";
+         document.getElementById("hid").focus();
+        return false;
+    }else{
+        document.getElementById('hid').style.borderColor = "green";
+    }
+
+    
+    if(joining_date < today){
 alert("Enter correct joining date ");
+       document.getElementById('hid').style.borderColor = "red";
+        document.getElementById("hid").focus();
         return false;
-
-    }
-
-    else
-    {
-    
-    
-            document.getElementById("contact-form").submit();
-        }
-    }
-
-
+    }else{
+        document.getElementById('hid').style.borderColor = "green";
+    }}
 
     </script>
 
@@ -90,9 +196,38 @@ alert("Enter correct joining date ");
 
 </head>
 
-<body><div id="wrapper">
+<body>
+<div id="wrapper">
 
-<div id="header"></div>
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> View</a>
+                    </li>
+                    <li class="active">
+                        <a href="add_an_employee.html"><i class="fa fa-fw fa-bar-chart-o"></i> Add an employee</a>
+                    </li>
+                    <li >
+                        <a href="departments.html"><i class="fa fa-fw fa-table"></i> Departments</a>
+                    </li>
+                    <li>
+                        <a href="projects.html"><i class="fa fa-fw fa-edit"></i> Projects</a>
+                    </li>
+                    <li>
+                        <a href="salary.html"><i class="fa fa-fw fa-desktop"></i> Salary</a>
+                    </li>
+                    
+                    <li>
+                        <a href="attendance.html"><i class="fa fa-fw fa-users"></i> Attendance</a>
+                    </li>
+                       
+                    </li>
+                    <li>
+                        <a href="clients.html"><i class="fa fa-fw fa-file"></i> Clients</a>
+                    </li>
+                    
+                </ul>
+            </div>
 
         <div id="page-wrapper">
 
@@ -118,8 +253,14 @@ alert("Enter correct joining date ");
                
                 <!-- /.row -->
 
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+
                
-                <!-- Flot Charts --><form action="salary.html" id="contact-form"  class="form-horizontal" role="form" method="post">
+                <!-- Flot Charts -->
+                <form action="salary.html" id="contact-form"  class="form-horizontal" role="form" method="post">
                         
 
 
@@ -140,14 +281,15 @@ alert("Enter correct joining date ");
                         <label for="lname" class="col-lg-2 control-label">Employee Last Name</label>
                         <div class="col-lg-10">
                             <input type="text" maxlength="25"  class="form-control" id="lname" name="lname" placeholder="Last Name" required>
+
                         </div>
                         </div>
                          <div class="form-group" >
                         <label for="gender" class="col-lg-2 control-label">Gender</label>
                         <div class="col-lg-10">
                            
-      <input type="radio"    name="male" id="female"> Male
-   <input type="radio" name="female" id="female"> Female
+                        <input type="radio"    name="male" id="female"> Male
+                         <input type="radio" name="female" id="female"> Female
                         </div>
                         </div>
 
@@ -424,6 +566,19 @@ alert("Enter correct joining date ");
                             <input type="text" maxlength="25"  class="form-control" id="ifsc" name="ifsc" placeholder="IFSC" required>
                         </div>
                         </div>
+                           <div class="form-group" >
+
+                        <label for="role_id" class="col-lg-2 control-label">Role ID</label>
+                        <div class="col-lg-10">
+                            
+                            <select class="form-control" name="role_id" id="role_id">
+                                
+                                <option>1 (Admin)</option>
+                                <option>2 (Manager)</option>
+                                <option>3 (Employee)</option>
+                            </select>
+                        </div>
+                        </div>
 
                        
                        
@@ -473,8 +628,48 @@ alert("Enter correct joining date ");
 
                   
 
-               
 
+<a data-toggle="modal" class="pull-right" data-target="#myModal"></a>
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Settings</h4>
+        </div>
+        <div class="modal-body">
+          <form action="#"   class="form-horizontal" role="form" method="post">
+                        
+
+
+                       
+                        <div class="form-group" >
+                        <label for="setting_name" class="col-lg-4 control-label">Setting Name</label>
+                        <div class="col-lg-8">
+                            <input type="text" maxlength="25"  class="form-control" id="setting_name" name="setting_name" placeholder="Setting Name" required>
+                        </div></div>
+
+                        <div class="form-group" >
+                        <label for="setting_value" class="col-lg-4 control-label">Setting Value</label>
+                        <div class="col-lg-8">
+                            <input type="int" maxlength="10"  class="form-control" id="setting_value" name="setting_value" placeholder="Setting Value" required>
+                        </div></div>
+                        <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-6">
+                            <button type="submit" class="btn btn-warning">Send</button>
+                        </div></div>
+
+       
+        <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" data-dismiss="modal" class="btn btn-info">Close</button>
+                        </div></div></form>
+      </div>
+    </div>
+  </div>
+</div>
+               
+<div id="header"></div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 

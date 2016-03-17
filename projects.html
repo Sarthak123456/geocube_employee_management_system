@@ -48,10 +48,10 @@ if(mm<10) {
 } 
 today = yyyy+'-'+mm+'-'+dd;
 
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear() +20;
+var tomorrow = new Date();
+var dd = tomorrow.getDate();
+var mm = tomorrow.getMonth()+1; //January is 0!
+var yyyy = tomorrow.getFullYear() +20;
 
 
 if(dd<10) {
@@ -62,47 +62,98 @@ if(mm<10) {
     mm='0'+mm
 } 
 tomorrow = yyyy+'-'+mm+'-'+dd;
+ 
+if(project_name.length == 0){
+        alert('Please Enter Project Name');
+        document.getElementById('project_name').style.borderColor = "red";
+         document.getElementById("project_name").focus();
+        return false;
+    }else{
+        document.getElementById('project_name').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("project_name").value)) {
+        alert("Project Name Contains Numbers!");
+        document.getElementById('project_name').style.borderColor = "red";
+         document.getElementById("project_name").focus();
+        return false;
+    }else{
+        document.getElementById('project_name').style.borderColor = "green";
+    }
 
-if(project_name.length== 0 || project_description.length== 0) {
 
-    alert("Fill all fields");
-    return false;
-}
+ 
+if(project_description.length == 0){
+        alert('Please Enter Project Description');
+        document.getElementById('project_description').style.borderColor = "red";
+         document.getElementById("project_description").focus();
+        return false;
+    }else{
+        document.getElementById('project_description').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("project_description").value)) {
+        alert("Project Description Contains Numbers!");
+        document.getElementById('project_description').style.borderColor = "red";
+         document.getElementById("project_description").focus();
+        return false;
+    }else{
+        document.getElementById('project_description').style.borderColor = "green";
+    }
+if(project_start_date.length == 0){
+        alert('Please Enter Project Start Date');
+        document.getElementById('project_start_date').style.borderColor = "red";
+         document.getElementById("project_start_date").focus();
+        return false;
+    }else{
+        document.getElementById('project_start_date').style.borderColor = "green";
+    } 
+if(project_end_date.length == 0){
+        alert('Please Enter Project End Date');
+        document.getElementById('project_end_date').style.borderColor = "red";
+         document.getElementById("project_end_date").focus();
+        return false;
+    }else{
+        document.getElementById('project_end_date').style.borderColor = "green";
+    } 
 
-    else if (project_start_date < today) 
+
+if (project_start_date < today) 
     {
         alert("Enter correct project start date ");
+       document.getElementById('project_start_date').style.borderColor = "red";
+         document.getElementById("project_start_date").focus();
+        return false;
+    }else{
+        document.getElementById('project_start_date').style.borderColor = "green";
+    } 
 
-this.parentNode.setAttribute("style",
-"background-color: #ffcccc");
-   this.setAttribute("aria-invalid", "true");
-     generateAlert("A value is required in this field");
-     return false;
 
-    }
-     else if (project_start_date >  tomorrow) 
+ if (project_start_date >  tomorrow) 
     {
         alert("Enter correct project start date ");
+       document.getElementById('project_start_date').style.borderColor = "red";
+         document.getElementById("project_start_date").focus();
         return false;
-
-    }
-    else if(project_end_date < today){
+    }else{
+        document.getElementById('project_start_date').style.borderColor = "green";
+    } 
+ if(project_end_date < today){
 alert("Enter correct end date ");
+        document.getElementById('project_end_date').style.borderColor = "red";
+         document.getElementById("project_end_date").focus();
         return false;
-
-    }
-    else if(project_end_date > tomorrow){
+    }else{
+        document.getElementById('project_end_date').style.borderColor = "green";
+    } 
+   
+  if(project_end_date > tomorrow){
 alert("Enter correct end date ");
+        document.getElementById('project_end_date').style.borderColor = "red";
+         document.getElementById("project_end_date").focus();
         return false;
-
-    }
-
-    else
-    {
-    
-    
-            document.getElementById("contact-form").submit();
-        }
+    }else{
+        document.getElementById('project_end_date').style.borderColor = "green";
+    } 
+   
     }
 
 
@@ -123,7 +174,7 @@ alert("Enter correct end date ");
 
     <div id="header"></div>
     <div id="page-wrapper">
-     <div id="content-wrapper">
+     
 
             <div class="container-fluid">
 
@@ -148,9 +199,8 @@ alert("Enter correct end date ");
         <!-- Navigation -->
        
                 <!-- /.row -->
-                <div id="wrapper">
-                <div id="header"></div>
-<form data-toggle="validator" onsubmit="return checkForm()" action="salary.html" id="contact-form"  class="form-horizontal" role="form" method="post" autocomplete="on">
+                
+<form action="salary.html" id="contact-form"  class="form-horizontal" role="form" method="post" autocomplete="on">
                         
 
 
@@ -195,6 +245,7 @@ alert("Enter correct end date ");
 
 
 </form>
+</div>
 </div>
                 
  

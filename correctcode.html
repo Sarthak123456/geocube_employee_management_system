@@ -1,4 +1,169 @@
+<script>
+function checkForm()
+{
+//fetching values from all input fields and storing them in variables
+    var project_date = document.getElementById("pdate").value;
+    var joining_date = document.getElementById("hid").value;
+    var first_name = document.getElementById("fname").value;
+    var last_name = document.getElementById("lname").value;
+    var address = document.getElementById("add").value;
+    var contact_number = document.getElementById("cno").value;
+    var account_number = document.getElementById("ano").value;
+    var middle_name = document.getElementById("mname").value;
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
 
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+today = yyyy+'-'+mm+'-'+dd;
+
+if(first_name.length == 0){
+        alert('Please Enter First Name');
+        document.getElementById('fname').style.borderColor = "red";
+         document.getElementById("fname").focus();
+        return false;
+    }else{
+        document.getElementById('fname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("fname").value)) {
+        alert("First Name Contains Numbers!");
+        document.getElementById('fname').style.borderColor = "red";
+         document.getElementById("fname").focus();
+        return false;
+    }else{
+        document.getElementById('fname').style.borderColor = "green";
+    }
+
+
+
+
+if(middle_name.length == 0){
+        alert('Please Enter Middle Name');
+        alert("Enter N/A if not applicable");
+        document.getElementById('mname').style.borderColor = "red";
+         document.getElementById("mname").focus();
+        return false;
+    }else{
+        document.getElementById('mname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("mname").value)) {
+        alert("Middle Name Contains Numbers!");
+        document.getElementById('mname').style.borderColor = "red";
+         document.getElementById("mname").focus();
+        return false;
+    }else{
+        document.getElementById('mname').style.borderColor = "green";
+    }
+
+
+
+
+if(last_name.length == 0){
+        alert('Please Enter Last Name');
+        document.getElementById('lname').style.borderColor = "red";
+         document.getElementById("lname").focus();
+        return false;
+    }else{
+        document.getElementById('lname').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("lname").value)) {
+        alert("Last Name Contains Numbers!");
+        document.getElementById('lname').style.borderColor = "red";
+         document.getElementById("lname").focus();
+        return false;
+    }else{
+        document.getElementById('lname').style.borderColor = "green";
+    }
+
+
+
+    if(address.length == 0){
+        alert('Please Enter Address');
+        document.getElementById('add').style.borderColor = "red";
+         document.getElementById("add").focus();
+        return false;
+    }else{
+        document.getElementById('add').style.borderColor = "green";
+    }
+if(contact_number.length == 0){
+        alert('Please Enter Contact Number');
+        document.getElementById('cno').style.borderColor = "red";
+         document.getElementById("cno").focus();
+        return false;
+    }else{
+        document.getElementById('cno').style.borderColor = "green";
+    }
+if(account_number.length == 0){
+        alert('Please Enter Account Number');
+        document.getElementById('ano').style.borderColor = "red";
+         document.getElementById("ano").focus();
+        return false;
+    }else{
+        document.getElementById('ano').style.borderColor = "green";
+    }
+
+var ifsc=document.getElementById("ifsc").value;
+    if(ifsc.length == 0){
+        alert('Please Enter IFSC Code');
+        document.getElementById('ifsc').style.borderColor = "red";
+         document.getElementById("ifsc").focus();
+        return false;
+    }else{
+        document.getElementById('ifsc').style.borderColor = "green";
+    }
+
+    if(project_date.length == 0){
+        alert('Please Enter Project Date');
+        document.getElementById('pdate').style.borderColor = "red";
+         document.getElementById("pdate").focus();
+        return false;
+    }else{
+        document.getElementById('pdate').style.borderColor = "green";
+    } 
+
+    if (project_date < today) 
+    {
+        alert("Enter correct project date ");
+         document.getElementById('pdate').style.borderColor = "red";
+          document.getElementById("pdate").focus();
+        return false;
+    }else{
+        document.getElementById('pdate').style.borderColor = "green";
+    }
+
+    if(joining_date.length == 0){
+        alert('Please Enter Joining Date');
+        document.getElementById('hid').style.borderColor = "red";
+         document.getElementById("hid").focus();
+        return false;
+    }else{
+        document.getElementById('hid').style.borderColor = "green";
+    }
+
+    
+    if(joining_date < today){
+alert("Enter correct joining date ");
+       document.getElementById('hid').style.borderColor = "red";
+        document.getElementById("hid").focus();
+        return false;
+    }else{
+        document.getElementById('hid').style.borderColor = "green";
+    }}
+
+    </script>
+
+
+
+
+----------------------------------------------------------------validatiion-------------------------------------
 
 
         <!-- Navigation -->
@@ -33,8 +198,7 @@
                             </a>
                         </li>
                         
-                    </ul>
-                </li>
+                    </ul></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu alert-dropdown">
@@ -44,6 +208,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> XYZ <b class="caret"></b></a>
                                       <ul class="dropdown-menu">
+                
     <li><a href="#">Profile</a></li>
     <li><a href="#">Settings</a></li>
     <li><a href="#">Logout</a></li>

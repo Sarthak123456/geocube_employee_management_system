@@ -48,10 +48,10 @@ if(mm<10) {
 } 
 today = yyyy+'-'+mm+'-'+dd;
 
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear() +20;
+var tomorrow = new Date();
+var dd = tomorrow.getDate();
+var mm = tomorrow.getMonth()+1; //January is 0!
+var yyyy = tomorrow.getFullYear() +20;
 
 
 if(dd<10) {
@@ -62,46 +62,99 @@ if(mm<10) {
     mm='0'+mm
 } 
 tomorrow = yyyy+'-'+mm+'-'+dd;
+if(from_date.length == 0){
+        alert('Please Enter From Date');
+        document.getElementById('from_date').style.borderColor = "red";
+         document.getElementById("from_date").focus();
+        return false;
+    }else{
+        document.getElementById('from_date').style.borderColor = "green";
+    } 
 
-if(hra.lenght== 0 || ta.length == 0 || da.length == 0 || other_allowance.length == 0){
+    if(to_date.length == 0){
+        alert('Please Enter To Date');
+        document.getElementById('to_date').style.borderColor = "red";
+         document.getElementById("to_date").focus();
+        return false;
+    }else{
+        document.getElementById('to_date').style.borderColor = "green";
+    } 
 
-    alert("Enter N/A if not required")
-}
 
-else if (from_date < today) 
+if (from_date < today) 
     {
         alert("Enter correct from date ");
+       document.getElementById('from_date').style.borderColor = "red";
+         document.getElementById("from_date").focus();
+        return false;
+    }else{
+        document.getElementById('from_date').style.borderColor = "green";
+    } 
 
-this.parentNode.setAttribute("style",
-"background-color: #ffcccc");
-   this.setAttribute("aria-invalid", "true");
-     generateAlert("A value is required in this field");
-     return false;
 
-    }
-     else if (from_date >  tomorrow) 
+ if (from_date >  tomorrow) 
     {
         alert("Enter correct from date ");
+       document.getElementById('from_date').style.borderColor = "red";
+         document.getElementById("from_date").focus();
         return false;
-
-    }
-    else if(to_date < today){
+    }else{
+        document.getElementById('from_date').style.borderColor = "green";
+    } 
+ if(to_date < today){
+alert("Enter correct  TO date ");
+        document.getElementById('to_date').style.borderColor = "red";
+         document.getElementById("to_date").focus();
+        return false;
+    }else{
+        document.getElementById('to_date').style.borderColor = "green";
+    } 
+   
+  if(to_date > tomorrow){
 alert("Enter correct to date ");
+        document.getElementById('to_date').style.borderColor = "red";
+         document.getElementById("to_date").focus();
         return false;
-
-    }
-    else if(to_date > tomorrow){
-alert("Enter correct to date ");
+    }else{
+        document.getElementById('to_date').style.borderColor = "green";
+    } 
+    if(hra.length == 0){
+        alert('Please Enter HRA');
+        alert("Enter N/A if not applicable");
+        document.getElementById('hra').style.borderColor = "red";
+         document.getElementById("hra").focus();
         return false;
+    }else{
+        document.getElementById('hra').style.borderColor = "green";
+    } 
+    if(ta.length == 0){
+        alert('Please Enter TA');
+           alert("Enter N/A if not applicable");
+        document.getElementById('ta').style.borderColor = "red";
+         document.getElementById("ta").focus();
+        return false;
+    }else{
+        document.getElementById('ta').style.borderColor = "green";
+    } 
+   if(da.length == 0){
+        alert('Please Enter DA');
+           alert("Enter N/A if not applicable");
+        document.getElementById('da').style.borderColor = "red";
+         document.getElementById("da").focus();
+        return false;
+    }else{
+        document.getElementById('da').style.borderColor = "green";
+    } 
+ if(other_allowance.length == 0){
+        alert('Please Enter Other Allowance');
+           alert("Enter N/A if not applicable");
+        document.getElementById('other_allowance').style.borderColor = "red";
+         document.getElementById("other_allowance").focus();
+        return false;
+    }else{
+        document.getElementById('other_allowance').style.borderColor = "green";
+    } 
 
-    }
-
-    else
-    {
-    
-    
-            document.getElementById("contact-form").submit();
-        }
     }
 
 
@@ -119,9 +172,39 @@ alert("Enter correct to date ");
 
 <body>
 
+
     <div id="wrapper">
-<div id="header"></div>
-        
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> View</a>
+                    </li>
+                    <li>
+                        <a href="add_an_employee.html"><i class="fa fa-fw fa-bar-chart-o"></i> Add an employee</a>
+                    </li>
+                    <li >
+                        <a href="departments.html"><i class="fa fa-fw fa-table"></i> Departments</a>
+                    </li>
+                    <li>
+                        <a href="projects.html"><i class="fa fa-fw fa-edit"></i> Projects</a>
+                    </li>
+                    <li class="active">
+                        <a href="salary.html"><i class="fa fa-fw fa-desktop"></i> Salary</a>
+                    </li>
+                    
+                    <li>
+                        <a href="attendance.html"><i class="fa fa-fw fa-users"></i> Attendance</a>
+                    </li>
+                       
+                    </li>
+                    <li>
+                        <a href="clients.html"><i class="fa fa-fw fa-file"></i> Clients</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+
 
         <div id="page-wrapper">
 
@@ -139,18 +222,16 @@ alert("Enter correct to date ");
                             </li>
                             <li class="active">
                                 <i class="fa fa-desktop"></i> Salary
+                                </li>
+                                
                         </ol>
                     </div>
+                </div>
                 </div>
                 <!-- /.row -->
 
 <form action="salary.html" id="contact-form"   class="form-horizontal" role="form" method="post">
-                        
-
-
-                       
-                       
-                       
+                    
 
                          <div class="form-group" >
 
@@ -208,17 +289,66 @@ alert("Enter correct to date ");
 
 
 </form>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
+</div><!-- End page wrapper -->
+
+</div><!-- End wraper -->
+
+
+<a data-toggle="modal" class="pull-right" data-target="#myModal"></a>
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Settings</h4>
+        </div>
+        <div class="modal-body">
+          <form action="#"   class="form-horizontal" role="form" method="post">
+                        
+
+
+                       
+                        <div class="form-group" >
+                        <label for="setting_name" class="col-lg-4 control-label">Setting Name</label>
+                        <div class="col-lg-8">
+                            <input type="text" maxlength="25"  class="form-control" id="setting_name" name="setting_name" placeholder="Setting Name" required>
+                        </div></div>
+
+                        <div class="form-group" >
+                        <label for="setting_value" class="col-lg-4 control-label">Setting Value</label>
+                        <div class="col-lg-8">
+                            <input type="int" maxlength="10"  class="form-control" id="setting_value" name="setting_value" placeholder="Setting Value" required>
+                        </div></div>
+                        <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-6">
+                            <button type="submit" class="btn btn-warning">Send</button>
+                        </div></div>
+
+       
+        <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" data-dismiss="modal" class="btn btn-info">Close</button>
+                        </div></div></form>
+      </div>
+    </div>
+  </div>
+</div>
+ <div id="header">
+</div>
+   <!-- jQuery -->
+   
+    <script src="js/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+   
     <script type="text/javascript">
     
     $(document).ready(function(){
         $("#header").load("header.html");
     });
     </script>
+
 
 </body>
 

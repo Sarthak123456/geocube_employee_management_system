@@ -21,20 +21,26 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script>
 function checkForm()
-{
-//fetching values from all input fields and storing them in variables
- 
-   
+{  var radios = $(":radio");
+for(var j=1;j<=radios.length ;j++){
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < radios.length) {
+        if (radios[i].checked) formValid = true;
+        i++;        
     
-ErrorText= "";
-if ( ( form.optradio[0].checked == false ) && ( form.optradio[1].checked == false ) ) 
-{
-alert ( "Please choose your Gender: Male or Female" ); 
-return false;
+
+    if (!formValid) alert("Must check some option!");
+         
+
+    return formValid;
 }
-if (ErrorText= "") { form.submit() }
 }
-        </script>
+}
+</script>
+
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -52,16 +58,41 @@ if (ErrorText= "") { form.submit() }
 <body>
 
     <div id="wrapper">
-<div id="header"></div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> View</a>
+                    </li>
+                    <li>
+                        <a href="add_an_employee.html"><i class="fa fa-fw fa-bar-chart-o"></i> Add an employee</a>
+                    </li>
+                    <li >
+                        <a href="departments.html"><i class="fa fa-fw fa-table"></i> Departments</a>
+                    </li>
+                    <li>
+                        <a href="projects.html"><i class="fa fa-fw fa-edit"></i> Projects</a>
+                    </li>
+                    <li>
+                        <a href="salary.html"><i class="fa fa-fw fa-desktop"></i> Salary</a>
+                    </li>
+                    
+                    <li class="active">
+                        <a href="attendance.html"><i class="fa fa-fw fa-users"></i> Attendance</a>
+                    </li>
+                       
+                    </li>
+                    <li>
+                        <a href="clients.html"><i class="fa fa-fw fa-file"></i> Clients</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
         <div id="page-wrapper">
 
             <div class="container-fluid">
 
-                <!-- Page Heading -->
                 
-
-
-
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -77,8 +108,9 @@ if (ErrorText= "") { form.submit() }
                             </li>
                         </ol>
                     </div>
+                    </div>
                 <!-- /.row -->
-<form action="#" id="contact-form"  class="form-horizontal" role="form" method="post">
+<form action="#" id="contact-form"  onsubmit="return checkForm()"class="form-horizontal" role="form" method="post">
 
                         <table class="table table-responsive">
     <thead>
@@ -92,9 +124,18 @@ if (ErrorText= "") { form.submit() }
     <tr><td><a href="#">xyz</a></td>
     
     <td> <input type="radio" id="optradio" value="present" name="optradio"> Present
-   &nbsp;&nbsp;<input type="radio" id="optradio" onclick="return checkForm(thisform)"name="optradio" value="absent"> Absent
+   &nbsp;&nbsp;<input type="radio" id="optradio" name="optradio" value="absent"> Absent
    </td>
    </tr>
+
+<tr><td><a href="#">abc</a></td>
+    
+    <td> <input type="radio" id="optradio1" value="present" name="optradio1"> Present
+   &nbsp;&nbsp;<input type="radio" id="optradio1" name="optradio1" value="absent"> Absent
+   </td>
+   </tr>
+
+
 
 
 </tbody>
@@ -107,10 +148,53 @@ if (ErrorText= "") { form.submit() }
                         
                         <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button type="submit"  class="btn btn-warning ">Send</button>
+                            <button type="submit"    class="btn btn-warning ">Send</button>
                         </div>
                     </div>
                 </form>
+                </div>
+                </div>
+                </div>
+                <a data-toggle="modal" class="pull-right" data-target="#myModal"></a>
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Settings</h4>
+        </div>
+        <div class="modal-body">
+          <form action="#"   class="form-horizontal" role="form" method="post">
+                        
+
+
+                       
+                        <div class="form-group" >
+                        <label for="setting_name" class="col-lg-4 control-label">Setting Name</label>
+                        <div class="col-lg-8">
+                            <input type="text" maxlength="25"  class="form-control" id="setting_name" name="setting_name" placeholder="Setting Name" required>
+                        </div></div>
+
+                        <div class="form-group" >
+                        <label for="setting_value" class="col-lg-4 control-label">Setting Value</label>
+                        <div class="col-lg-8">
+                            <input type="int" maxlength="10"  class="form-control" id="setting_value" name="setting_value" placeholder="Setting Value" required>
+                        </div></div>
+                        <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-6">
+                            <button type="submit" class="btn btn-warning">Send</button>
+                        </div></div>
+
+       
+        <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button type="submit" data-dismiss="modal" class="btn btn-info">Close</button>
+                        </div></div></form>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="header"></div>
 
                
 
@@ -128,7 +212,7 @@ if (ErrorText= "") { form.submit() }
         $("#header").load("header.html");
     });
     </script>
-
+    
 </body>
 
 </html>

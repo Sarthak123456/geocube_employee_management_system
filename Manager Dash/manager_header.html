@@ -13,69 +13,12 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                       
-                            
-                        </li>
-                        
-                            
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-
-                                    
-                                </div>
-                            </a>
-                        </li>
-                        
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        
-                    </ul>
-                </li>
-                <li class="dropdown">
+                   
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> XYZ <b class="caret"></b></a>
                      <ul class="dropdown-menu">
     <li><a href="manager_dash_profile.html">Profile</a></li>
-    <li><a  data-popup-open="popup-1" href="#">Settings</a>
- 
-<div class="popup" data-popup="popup-1">
-    <div class="popup-inner">
-        <h3>Settings</h3>
-        <form action="#"   class="form-horizontal" role="form" method="post">
-                        
-
-
-                       
-                        <div class="form-group" >
-                        <label for="setting_name" class="col-lg-4 control-label">Setting Name</label>
-                        <div class="col-lg-8">
-                            <input type="text" maxlength="25"  class="form-control" id="setting_name" name="setting_name" placeholder="Setting Name" required>
-                        </div></div>
-
-                        <div class="form-group" >
-                        <label for="setting_value" class="col-lg-4 control-label">Setting Value</label>
-                        <div class="col-lg-8">
-                            <input type="int" maxlength="10"  class="form-control" id="setting_value" name="setting_value" placeholder="Setting Value" required>
-                        </div></div>
-                        <div class="form-group">
-                        <div class="col-lg-offset-2 col-lg-10">
-                            <button type="submit" class="btn btn-warning">Send</button>
-                        </div></div>
-
-        </form>
-        
-            
-      
-        <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
-    </div>
-</div>
-</li>
+     <li><a data-toggle="modal" data-target="#myModal">Settings</a></li>
+    
     <li><a href="#">Logout</a></li>
   </ul>
                
@@ -83,44 +26,7 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="manager_index.html"><i class="fa fa-fw fa-dashboard"></i>Projects</a>
-                    </li>
-                    <li>
-                        <a href="manager_employee.html"><i class="fa fa-fw fa-bar-chart-o"></i>Employees</a>
-                    </li>
-                    <li >
-                        <a href="manager_teams.html"><i class="fa fa-fw fa-table"></i>Teams</a>
-                    </li>
-                    
-                    <li>
-                        <a href="manager_clients.html"><i class="fa fa-fw fa-file"></i> Clients</a>
-                    </li>
-                    
-                </ul>
-            </div>
+           
             <!-- /.navbar-collapse -->
         </nav>
-        <script type="text/javascript">
-            
-
-            $(function() {
-    //----- OPEN
-    $('[data-popup-open]').on('click', function(e)  {
-        var targeted_popup_class = jQuery(this).attr('data-popup-open');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
- 
-        e.preventDefault();
-    });
- 
-    //----- CLOSE
-    $('[data-popup-close]').on('click', function(e)  {
-        var targeted_popup_class = jQuery(this).attr('data-popup-close');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
- 
-        e.preventDefault();
-    });
-});
-        </script>
+       

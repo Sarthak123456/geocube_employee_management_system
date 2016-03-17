@@ -22,6 +22,32 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript">
+    function checkForm()
+{
+        
+var department_name = document.getElementById('department_name').value;
+
+if(department_name.length == 0){
+        alert('Please Enter Department Name');
+        document.getElementById('department_name').style.borderColor = "red";
+         document.getElementById("department_name").focus();
+        return false;
+    }else{
+        document.getElementById('department_name').style.borderColor = "green";
+    }
+    if (/^[0-9]+$/.test(document.getElementById("department_name").value)) {
+        alert("Department Name Contains Numbers!");
+        document.getElementById('department_name').style.borderColor = "red";
+         document.getElementById("department_name").focus();
+        return false;
+    }else{
+        document.getElementById('department_name').style.borderColor = "green";
+    }
+}
+
+    </script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +62,35 @@
 
     <div id="wrapper">
 
-        <div id="header"></div>
+           <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> View</a>
+                    </li>
+                    <li>
+                        <a href="add_an_employee.html"><i class="fa fa-fw fa-bar-chart-o"></i> Add an employee</a>
+                    </li>
+                    <li class="active">
+                        <a href="departments.html"><i class="fa fa-fw fa-table"></i> Departments</a>
+                    </li>
+                    <li>
+                        <a href="projects.html"><i class="fa fa-fw fa-edit"></i> Projects</a>
+                    </li>
+                    <li>
+                        <a href="salary.html"><i class="fa fa-fw fa-desktop"></i> Salary</a>
+                    </li>
+                    
+                    <li>
+                        <a href="attendance.html"><i class="fa fa-fw fa-users"></i> Attendance</a>
+                    </li>
+                       
+                    </li>
+                    <li>
+                        <a href="clients.html"><i class="fa fa-fw fa-file"></i> Clients</a>
+                    </li>
+                    
+                </ul>
+            </div>
 
         <div id="page-wrapper">
 
@@ -62,7 +116,7 @@
                 </div>
 
                 <!-- Page Heading -->
-                <form action="salary.html" id="contact-form" onsubmit="return checkForm()" class="form-horizontal" role="form" method="post">
+                <form action="salary.html" id="contact-form" class="form-horizontal" role="form" method="post">
                         
 
 
@@ -74,28 +128,50 @@
                             <input type="text" maxlength="25"  class="form-control" id="department_name" name="department_name" placeholder="Department Name" required autofocus>
                         </div>
                         </div>
+         
+
+
+<a data-toggle="modal" class="pull-right" data-target="#myModal"></a>
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Settings</h4>
+        </div>
+        <div class="modal-body">
+          <form action="#"   class="form-horizontal" role="form" method="post">
                         
 
 
+                       
+                        <div class="form-group" >
+                        <label for="setting_name" class="col-lg-4 control-label">Setting Name</label>
+                        <div class="col-lg-8">
+                            <input type="text" maxlength="25"  class="form-control" id="setting_name" name="setting_name" placeholder="Setting Name" required>
+                        </div></div>
 
-
-
-
-
-
+                        <div class="form-group" >
+                        <label for="setting_value" class="col-lg-4 control-label">Setting Value</label>
+                        <div class="col-lg-8">
+                            <input type="int" maxlength="10"  class="form-control" id="setting_value" name="setting_value" placeholder="Setting Value" required>
+                        </div></div>
                         <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-6">
+                            <button type="submit" class="btn btn-warning">Send</button>
+                        </div></div>
+
+       
+        <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button type="submit" onclick="checkForm()" class="btn btn-warning buttoncontactus">Add</button>
-                        </div>
-                    </div>
-                </form>
-
-
-                        
-
-
-    <!-- /#wrapper -->
-
+                            <button type="submit" data-dismiss="modal" class="btn btn-info">Close</button>
+                        </div></div></form>
+      </div>
+    </div>
+  </div>
+</div>
+               
+<div id="header"></div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -106,6 +182,10 @@
     $(document).ready(function(){
         $("#header").load("header.html");
     });
+    </script>
+    <script type="text/javascript">
+        
+        {% block navbar_class-departments %} active {% endblock %}
     </script>
 
 </body>
